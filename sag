@@ -1,0 +1,38 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+local Window = Library.CreateLib("Prison Hub | Made By ProEternalx1 |Contact Me If theres Problems", "Sentinel")
+
+local Tab = Window:NewTab("Player")
+local Section = Tab:NewSection("local player")
+Section:NewLabel("Walkspeed")
+Section:NewSlider("Walkspeed", "Walkspeed", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+Section:NewLabel("Jump Power")
+Section:NewSlider("JumpPower", "JumpPower", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+local Section = Tab:NewSection("local weapons")
+Section:NewButton("Get All Weapons | Outdated", "Gets Every Weapons", function()
+    for i,v in pairs(Workspace.Prison_ITEMS.giver:GetChildren()) do
+        lol = Workspace.Remote.ItemHandler:InvokeServer(v.ITEMPICKUP)
+        print(lol)
+        end
+        end)
+local Section = Tab:NewSection("local weapons")
+Section:NewButton("ButtonText", "ButtonInfo", function()
+    local player = game:GetService("Players").LocalPlayer
+local gun = player.Backpack:FindFirstChild("M9")
+local sM = require(gun:FindFirstChild("GunStates"))
+sM["Damage"] = 999
+sM["MaxAmmo"] = 9999991
+sM["StoredAmmo"] = 9999991
+sM["FireRate"] = 0.05
+sM["AmmoPerClip"] = 9999991
+sM["Range"] = 5000
+sM["ReloadTime"] = 0.05
+sM["Bullets"] = 10
+sM["AutoFire"] = true
+end)
